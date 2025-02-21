@@ -35,9 +35,10 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(height: 10.h,),
           Login(),
           SizedBox(height: 10.h,),
-          Have()
+          //Have()
         ],
-      ),)
+      ),),
+      bottomNavigationBar: Have(),
     );
   }
 
@@ -45,9 +46,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return Padding(
           padding:  EdgeInsets.symmetric(horizontal: 15.w),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Don't Have Account?",
+              Text("Don't Have Account ? ",
                 style: TextStyle(fontSize: 13.sp,
                 color:  Colors.grey,
                 fontWeight: FontWeight.normal,
@@ -75,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 44.h,
             decoration: BoxDecoration(
                 color: Colors.black,
-                borderRadius: BorderRadius.circular(10.r)  ),
+                borderRadius: BorderRadius.circular(15.r)  ),
             child: Text('Log In',
               style: TextStyle(
                 fontSize: 23.sp,
@@ -89,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget Forgot() {
     return Padding(
           padding:  EdgeInsets.symmetric(horizontal: 15.w),
-          child: Text('Forgot your passowrd?',
+          child: Text('Forgot your password?',
             style: TextStyle(fontSize: 13.sp,
                 color:  Colors.blue,
                 fontWeight: FontWeight.bold,
@@ -116,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: InputDecoration(
                   hintText: type,
                   prefixIcon: Icon(icon, color: focusNode.hasFocus? Colors.black : Colors.grey,),  //get icon with color condition
-                  contentPadding: EdgeInsets.symmetric(horizontal: 15.w,vertical: 15.h),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 15.w,vertical: 0.h), // To adjust the hint word position must be equal to position in y axis of icon
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.r),
                       borderSide: BorderSide(color: Colors.grey,width:2.w)
