@@ -55,10 +55,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 10.h,),
               SignUp(),
               SizedBox(height: 10.h,),
-              Have()
+              //Have()
 
             ],
-          ),)
+          ),),
+        bottomNavigationBar: Have(),
     );
   }
 
@@ -66,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Padding(
       padding:  EdgeInsets.symmetric(horizontal: 15.w),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text("Have Account?",
             style: TextStyle(fontSize: 13.sp,
@@ -93,10 +94,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
       child: Container(              //FOR LOGIN BUTTON
           alignment: Alignment.center,
           width: double.infinity,
-          height: 44.h,
+          height: 55.h,
           decoration: BoxDecoration(
               color: Colors.black,
-              borderRadius: BorderRadius.circular(10.r)  ),
+              borderRadius: BorderRadius.circular(15.r)  ),
           child: Text('Sign Up',
             style: TextStyle(
               fontSize: 23.sp,
@@ -137,7 +138,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           decoration: InputDecoration(
             hintText: type,
             prefixIcon: Icon(icon, color: focusNode.hasFocus? Colors.black : Colors.grey,),  //get icon with color condition
-            contentPadding: EdgeInsets.symmetric(horizontal: 15.w,vertical: 15.h),
+            contentPadding: EdgeInsets.symmetric(horizontal: 15.w,vertical: 0.h),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5.r),
                 borderSide: BorderSide(color: Colors.grey,width:2.w)

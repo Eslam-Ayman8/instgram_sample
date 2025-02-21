@@ -73,10 +73,10 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Container(              //FOR LOGIN BUTTON
             alignment: Alignment.center,
             width: double.infinity,
-            height: 44.h,
+            height: 55.h,
             decoration: BoxDecoration(
                 color: Colors.black,
-                borderRadius: BorderRadius.circular(15.r)  ),
+                borderRadius: BorderRadius.circular(10.r)  ),
             child: Text('Log In',
               style: TextStyle(
                 fontSize: 23.sp,
