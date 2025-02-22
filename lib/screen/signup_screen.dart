@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:instgram_sample/data/firebase_service/firebase_auth.dart';
+import 'package:instgram_sample/util/dialog.dart';
+import 'package:instgram_sample/util/exeption.dart';
 
 class SignUpScreen extends StatefulWidget {
   final VoidCallback show;
@@ -91,19 +96,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget SignUp() {
     return Padding(
       padding:  EdgeInsets.symmetric(horizontal: 10.w),
-      child: Container(              //FOR LOGIN BUTTON
-          alignment: Alignment.center,
-          width: double.infinity,
-          height: 55.h,
-          decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(15.r)  ),
-          child: Text('Sign Up',
-            style: TextStyle(
-              fontSize: 23.sp,
-              color:  Colors.white,
-              fontWeight: FontWeight.bold,),
-          )
+      child: InkWell(
+        onTap: () async{
+          try{
+            await Authentication().Signup(email: email.text, password: password.text, passwordConfirme: passwordConfirme.text, username: username.text, bio: bio.text, profile: File(''));
+          }on exceptions catch(e){
+            dialogBuilder(context, e.massage);
+          }
+        },
+        child: Container(              //FOR LOGIN BUTTON
+            alignment: Alignment.center,
+            width: double.infinity,
+            height: 55.h,
+            decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(15.r)  ),
+            child: Text('Sign Up',
+              style: TextStyle(
+                fontSize: 23.sp,
+                color:  Colors.white,
+                fontWeight: FontWeight.bold,),
+            )
+        ),
       ),
     );
   }
