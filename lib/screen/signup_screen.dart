@@ -6,6 +6,10 @@ import 'package:instgram_sample/data/firebase_service/firebase_auth.dart';
 import 'package:instgram_sample/util/dialog.dart';
 import 'package:instgram_sample/util/exeption.dart';
 
+import '../util/imagepicker.dart';
+
+
+
 class SignUpScreen extends StatefulWidget {
   final VoidCallback show;
   SignUpScreen(this.show,{super.key});
@@ -30,6 +34,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final passwordConfirme = TextEditingController();
   FocusNode passwordConfirme_F = FocusNode();
 
+  File? _imageFile;
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -43,9 +49,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Image.asset("images/logo.jpg"),
               ),
               SizedBox(height: 20.h,),
-              Center(child: CircleAvatar(radius: 32.r,
-              backgroundColor: Colors.grey.shade200,
-              backgroundImage: AssetImage('images/person.jpg'),),
+              Center(child:
+              InkWell(
+                onTap: () async{
+                  File _imagefilee = await ImagePickerr().uploadImage('gallery');
+                  setState(() {
+                    _imageFile = _imagefilee; //?????????????????????????
+                  });
+                },
+                child: CircleAvatar(
+                  radius: 36.r,
+                  backgroundColor: Colors.grey,
+
+                  child: _imageFile ==null? CircleAvatar(
+                    radius: 36.r,
+                    backgroundColor: Colors.grey,
+                    child: CircleAvatar(radius: 32.r,
+                    backgroundColor: Colors.grey.shade200,
+                    backgroundImage: AssetImage('images/person.jpg'),),
+                  ) : CircleAvatar(
+                    radius: 36.r,
+                    backgroundColor: Colors.grey,
+                    child: CircleAvatar(radius: 32.r,
+                      backgroundColor: Colors.grey.shade200,
+                      backgroundImage: Image.file(_imageFile!, fit: BoxFit.cover,).image ),
+                  )
+                ),
+              ),
                 ),
               SizedBox(height: 50.h,),
               Textfield(email,Icons.mail,'Email',email_F),

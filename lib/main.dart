@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instgram_sample/auth/auth_screen.dart';
+import 'package:instgram_sample/auth/mainpage.dart';
 import 'package:instgram_sample/screen/login_screen.dart';
 
 import 'firebase_options.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ScreenUtilInit(designSize: Size(375,812),child:AuthPage()),
+      home: ScreenUtilInit(designSize: Size(375,812),child:MainPage()),
     );
 
   }
