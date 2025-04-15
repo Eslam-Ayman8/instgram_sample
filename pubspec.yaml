@@ -74,6 +74,12 @@ flutter:
 
   assets:
     - images/logo.jpg
+    - images/camera.jpg
+    - images/send.jpg
+    - images/person.jpg
+    - images/post.jpg
+    - images/comment.jpg
+    - images/save.jpg
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package

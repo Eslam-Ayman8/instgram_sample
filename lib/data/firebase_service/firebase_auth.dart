@@ -7,6 +7,17 @@ import 'package:instgram_sample/util/exeption.dart';
 
 class Authentication{
   FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<void> Login({
+    required String email,
+    required String password
+
+}) async {
+    try {
+      await _auth.signInWithEmailAndPassword(email: email.trim(), password: password.trim());
+    }on FirebaseException catch(e){
+      throw exceptions(e.message.toString());
+    }
+  }
   Future<void> Signup({
     required String email,
     required String password,
