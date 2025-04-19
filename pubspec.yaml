@@ -36,6 +36,7 @@ dependencies:
   firebase_storage: ^12.4.3
   cloud_firestore: ^5.6.4
   image_picker: ^1.1.2
+  photo_manager: ^3.6.4
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -80,6 +81,7 @@ flutter:
     - images/post.jpg
     - images/comment.jpg
     - images/save.jpg
+    - images/reel_icon.png
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package

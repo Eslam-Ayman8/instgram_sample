@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instgram_sample/screen/explor_screen.dart';
 import 'package:instgram_sample/screen/home.dart';
 import 'package:instgram_sample/screen/profile_screen.dart';
 import 'package:instgram_sample/screen/reelsScreen.dart';
+import 'package:instgram_sample/screen/add_screen.dart';
 
 class Navigations_Screen extends StatefulWidget {
   const Navigations_Screen({super.key});
@@ -46,20 +48,24 @@ class _Navigations_ScreenState extends State<Navigations_Screen> {
           unselectedItemColor: Colors.grey,
           currentIndex: _currentIndex,
           onTap: navigationTapped,
-          items: const [
-            BottomNavigationBarItem(
+          items:  [
+            const BottomNavigationBarItem(
                 icon: Icon(Icons.home),
             label: ''
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: Icon(Icons.search),
                 label: ''
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: Icon(Icons.camera),
                 label: ''
             ),
             BottomNavigationBarItem(
+                icon: Image.asset('images/reel_icon.png', height: 20.h,),
+                label: ''
+            ),
+            const BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: ''
             ),
@@ -72,6 +78,7 @@ class _Navigations_ScreenState extends State<Navigations_Screen> {
         children: [
           HomeScreen(),
           ExplorScreen(),
+          AddScreen(),
           ReelScreenState(),
           ProfileScreen()
         ],

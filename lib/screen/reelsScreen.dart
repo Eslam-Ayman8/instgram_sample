@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:instgram_sample/screen/add_screen.dart';
 
 
 class ReelScreenState extends StatefulWidget {
@@ -16,6 +17,7 @@ class _ReelScreenStateState extends State<ReelScreenState> {
         body: Center(
           child: Text('Reels Page'),
         )
+
     );
   }
 }
