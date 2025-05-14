@@ -117,7 +117,14 @@ class _AddPostScreenState extends State<AddPostScreen> {
           child: Container(
             child: Column(
               children: [
-                SizedBox(
+                GestureDetector(
+                  onTap: () async{
+                    File _imagefilee = await ImagePickerr().uploadImage('gallery');
+                    setState(() {
+                      _file = _imagefilee; //?????????????????????????
+                    });
+                  },
+                child: SizedBox(
 
                       width: 375.h,
                       height: 375.h,
@@ -128,7 +135,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                       )
                           : Image.file(_file!, fit: BoxFit.cover),
                   ),
-
+                ),
                 Container(
                   width: double.infinity,
                   height: 40.h,

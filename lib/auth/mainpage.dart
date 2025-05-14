@@ -15,6 +15,7 @@ class MainPage extends StatelessWidget{
       body: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context,snapshot) {
+          print("THE SNAPSHOT DATA STATUS : $snapshot.hasData");
           if(snapshot.hasData) {
             return const Navigations_Screen();
           } else {

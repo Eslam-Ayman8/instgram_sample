@@ -129,7 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       child: InkWell(
         onTap: () async{
           try{
-            await Authentication().Signup(email: email.text, password: password.text, passwordConfirme: passwordConfirme.text, username: username.text, bio: bio.text, profile: File(''));
+            await Authentication().Signup(email: email.text, password: password.text, passwordConfirme: passwordConfirme.text, username: username.text, bio: bio.text); //profile: File('') is missing
           }on exceptions catch(e){
             dialogBuilder(context, e.massage);
           }

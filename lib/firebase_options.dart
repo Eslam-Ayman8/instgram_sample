@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'instagram-b2e6e.firebasestorage.app',
     iosBundleId: 'com.instgramsample.instgramSample',
   );
+
 }
