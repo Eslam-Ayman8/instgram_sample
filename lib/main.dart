@@ -5,6 +5,8 @@ import 'package:instgram_sample/auth/auth_screen.dart';
 import 'package:instgram_sample/auth/mainpage.dart';
 import 'package:instgram_sample/screen/login_screen.dart';
 
+import 'package:supabase_flutter/supabase_flutter.dart';
+
 import 'firebase_options.dart';
 
 //import 'firebase_options.dart';
@@ -13,6 +15,11 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  await Supabase.initialize(
+    url: 'https://xiwbxmjovfnndpjgyczm.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhpd2J4bWpvdmZubmRwamd5Y3ptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczNDEwNzcsImV4cCI6MjA2MjkxNzA3N30.LIUB4gij77607_VU9MsCCKpz55q3JpbbeMZuabc543g',
   );
   runApp(const MyApp());
 }

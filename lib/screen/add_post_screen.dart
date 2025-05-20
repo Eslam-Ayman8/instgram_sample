@@ -96,7 +96,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
         actions: [
           Center(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              padding: EdgeInsets.symmetric(horizontal: 16),
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(

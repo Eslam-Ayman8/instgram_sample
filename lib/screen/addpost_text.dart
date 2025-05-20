@@ -5,6 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:instgram_sample/data/firebase_service/firestor.dart';
 import 'package:instgram_sample/data/firebase_service/storage.dart';
 
+
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:uuid/uuid.dart';
+
+//final supabase = Supabase.instance.client;
+
+
 class AddPostTextScreen extends StatefulWidget {
   File _file;
   AddPostTextScreen(this._file, {super.key});
@@ -39,9 +46,16 @@ class _AddPostTextScreenState extends State<AddPostTextScreen> {
                 });
                 // String post_url = await StorageMethod()
                 //     .uploadImageToStorage('post', widget._file);
+                //String post_url = await
+                //final bytes = await widget._file.readAsBytes();
+
+                //final avatarFile = widget._file;
+                //final userID = supabase.auth.currentUser!.id;
+                //final p_id = Uuid().v4();
+                //await supabase.storage.from('images').uploadBinary('/$p_id.jpg', bytes);
 
                 await Firebase_Firestor().CreatePost(
-                  //postImage: 'a',
+                  postImage: widget._file,
                   caption: caption.text,
                   location: location.text,
                 );

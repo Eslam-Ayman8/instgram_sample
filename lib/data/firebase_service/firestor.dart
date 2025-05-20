@@ -1,10 +1,13 @@
 import 'dart:ffi';
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:instgram_sample/data/model/usermodel.dart';
 import 'package:instgram_sample/util/exeption.dart';
 import 'package:uuid/uuid.dart';
+import 'package:instgram_sample/data/supabase_service/supabase_storage.dart';
 
 class Firebase_Firestor {
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
@@ -61,7 +64,7 @@ class Firebase_Firestor {
   }
 
   Future<bool> CreatePost({
-    //required String postImage,
+    required File postImage,
     required String caption,
     required String location,
   }) async {
@@ -70,8 +73,10 @@ class Firebase_Firestor {
       DateTime now = DateTime.now();
       Usermodel user = await getUser();
 
+      final  url = await Supabase_Storage_Method().uploadImageToStorage(uid, postImage);
+
       await _firebaseFirestore.collection('posts').doc(uid).set({
-        //'postImage': postImage,
+        'postImage': url,
         'username': user.username,
         //'profileImage': user.profile,
         'caption': caption,
@@ -155,7 +160,7 @@ class Firebase_Firestor {
     return res;
   }
 
-  Future<void> flollow({
+  Future<void> follow({
     required String uid,
   }) async {
     DocumentSnapshot snap = await _firebaseFirestore
